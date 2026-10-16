@@ -1,0 +1,1480 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d1b">
+  <meta name="description" content="Portfolio of Darshana Meena, UI/UX Designer and Frontend Developer from Indore, India.">
+
+  <title>Darshana Meena | UI/UX Designer & Frontend Developer</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#080d1b",
+            panel: "#111a2d",
+            mint: "#83f0d0",
+            lilac: "#a5b4fc"
+          },
+          fontFamily: {
+            sans: ["DM Sans", "sans-serif"],
+            display: ["Manrope", "sans-serif"]
+          },
+          boxShadow: {
+            glow: "0 0 60px rgba(131,240,208,.16)",
+            card: "0 24px 70px rgba(0,0,0,.28)"
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Fonts and icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root {
+      --mint: #83f0d0;
+      --lilac: #a5b4fc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: #f4f7ff;
+      background:
+        radial-gradient(ellipse at 12% 5%, rgba(99,102,241,.14), transparent 35%),
+        radial-gradient(ellipse at 90% 35%, rgba(45,212,191,.09), transparent 32%),
+        #080d1b;
+      font-family: "DM Sans", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Manrope", sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .gradient-text {
+      color: var(--mint);
+      background: linear-gradient(100deg, var(--mint), var(--lilac));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* UPDATED NAVBAR */
+
+    .glass-nav {
+      background: rgba(8,13,27,.72);
+      border-bottom: 1px solid rgba(255,255,255,.075);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      transition:
+        background .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+    }
+
+    .glass-nav.scrolled {
+      background: rgba(8,13,27,.96);
+      border-color: rgba(131,240,208,.18);
+      box-shadow:
+        0 12px 35px rgba(0,0,0,.22),
+        0 1px 0 rgba(131,240,208,.035);
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 43px;
+      height: 43px;
+      flex-shrink: 0;
+      place-items: center;
+      border: 1px solid rgba(131,240,208,.45);
+      border-radius: 14px;
+      background: linear-gradient(
+        145deg,
+        rgba(131,240,208,.17),
+        rgba(165,180,252,.11)
+      );
+      color: var(--mint);
+      font-family: "Manrope", sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      box-shadow: inset 0 0 18px rgba(131,240,208,.035);
+      transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .brand-link:hover .brand-mark {
+      transform: rotate(-5deg) translateY(-1px);
+      border-color: var(--mint);
+      box-shadow: 0 0 24px rgba(131,240,208,.13);
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 10px 0;
+      color: #a6b1c8;
+      transition: color .2s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 2px;
+      height: 2px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--mint), var(--lilac));
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform .25s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible,
+    .nav-link.active {
+      color: #f4f7ff;
+    }
+
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after,
+    .nav-link.active::after {
+      transform: scaleX(1);
+    }
+
+    .nav-link.active {
+      color: var(--mint);
+    }
+
+    .nav-contact {
+      border: 1px solid rgba(131,240,208,.4);
+      background: linear-gradient(
+        135deg,
+        rgba(131,240,208,.12),
+        rgba(165,180,252,.07)
+      );
+      color: var(--mint);
+      transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .nav-contact:hover {
+      transform: translateY(-2px);
+      background: var(--mint);
+      color: #071a19;
+      box-shadow: 0 0 25px rgba(131,240,208,.18);
+    }
+
+    .menu-toggle {
+      transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+    }
+
+    .menu-toggle:hover {
+      transform: translateY(-1px);
+    }
+
+    .mobile-menu {
+      display: none;
+      background: rgba(8,13,27,.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    .mobile-menu.open {
+      display: flex;
+      animation: menuEnter .22s ease both;
+    }
+
+    .mobile-menu a {
+      border: 1px solid transparent;
+      transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      border-color: rgba(131,240,208,.12);
+      background: rgba(131,240,208,.06);
+      color: var(--mint);
+    }
+
+    /* SECTION STYLING */
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--mint);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      background: var(--mint);
+    }
+
+    .section-pad {
+      padding: 88px 0;
+    }
+
+    .glass-card {
+      border: 1px solid rgba(255,255,255,.09);
+      background: linear-gradient(
+        145deg,
+        rgba(20,29,49,.84),
+        rgba(13,21,38,.78)
+      );
+      backdrop-filter: blur(14px);
+      transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(131,240,208,.32);
+      box-shadow: 0 18px 50px rgba(0,0,0,.18);
+    }
+
+    .skill-tag,
+    .project-tag {
+      display: inline-flex;
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(255,255,255,.035);
+      color: #cbd5e1;
+      padding: 5px 9px;
+      border-radius: 8px;
+      font-size: .76rem;
+    }
+
+    .skill-icon {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(131,240,208,.2);
+      border-radius: 14px;
+      color: var(--mint);
+      background: rgba(131,240,208,.08);
+    }
+
+    /* UPDATED PROFILE PHOTO DESIGN */
+
+    .portrait-wrap {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      padding: 35px 0;
+    }
+
+    .portrait-wrap::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      width: 270px;
+      height: 270px;
+      border-radius: 50%;
+      background: rgba(131,240,208,.13);
+      filter: blur(65px);
+      pointer-events: none;
+    }
+
+    .portrait-orbit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: -1;
+      width: min(390px, 94%);
+      aspect-ratio: 1;
+      border: 1px solid rgba(165,180,252,.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: orbit 32s linear infinite;
+      pointer-events: none;
+    }
+
+    .portrait-orbit::before,
+    .portrait-orbit::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .portrait-orbit::before {
+      left: 12%;
+      top: 18%;
+      background: var(--mint);
+      box-shadow: 0 0 20px rgba(131,240,208,.8);
+    }
+
+    .portrait-orbit::after {
+      right: 8%;
+      bottom: 20%;
+      background: var(--lilac);
+      box-shadow: 0 0 20px rgba(165,180,252,.8);
+    }
+
+    .portrait-shell {
+      position: relative;
+      z-index: 2;
+      width: min(330px, 72vw);
+      aspect-ratio: .82;
+      padding: 3px;
+      border-radius: 46% 46% 30px 30px;
+      background: linear-gradient(
+        145deg,
+        #83f0d0 0%,
+        #a5b4fc 45%,
+        rgba(131,240,208,.3) 75%,
+        #83f0d0 100%
+      );
+      box-shadow:
+        0 0 0 8px rgba(131,240,208,.035),
+        0 0 0 16px rgba(165,180,252,.025),
+        0 28px 80px rgba(0,0,0,.42),
+        0 0 55px rgba(131,240,208,.13);
+      transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+    }
+
+    .portrait-shell:hover {
+      transform: translateY(-5px);
+      box-shadow:
+        0 0 0 8px rgba(131,240,208,.05),
+        0 0 0 16px rgba(165,180,252,.035),
+        0 35px 85px rgba(0,0,0,.45),
+        0 0 70px rgba(131,240,208,.19);
+    }
+
+    .portrait-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: inherit;
+      background: linear-gradient(145deg,#263754,#10182a);
+    }
+
+    .portrait-inner img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      transition: transform .6s ease;
+    }
+
+    .portrait-shell:hover .portrait-inner img {
+      transform: scale(1.035);
+    }
+
+    .portrait-inner::after {
+      content: "";
+      position: absolute;
+      inset: 45% 0 0;
+      z-index: 1;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(8,13,27,.12)
+      );
+      pointer-events: none;
+    }
+
+    .portrait-inner #portraitFallback {
+      z-index: 2;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(131,240,208,.12), transparent 38%),
+        linear-gradient(145deg,#1b2943,#10182a);
+    }
+
+    .float-badge {
+      position: absolute;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 15px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 16px;
+      background: rgba(15,24,42,.94);
+      color: #e7edf8;
+      box-shadow:
+        0 15px 40px rgba(0,0,0,.3),
+        inset 0 1px 0 rgba(255,255,255,.035);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      animation: bob 5s ease-in-out infinite;
+    }
+
+    .float-badge i {
+      color: var(--mint);
+    }
+
+    .float-badge.one {
+      top: 15%;
+      right: -4%;
+    }
+
+    .float-badge.two {
+      bottom: 13%;
+      left: -7%;
+      animation-delay: -2.5s;
+    }
+
+    .status-dot {
+      position: relative;
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--mint);
+      flex-shrink: 0;
+    }
+
+    .status-dot::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border: 1px solid var(--mint);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    /* PROJECT PREVIEWS */
+
+    .project-cover {
+      position: relative;
+      display: grid;
+      min-height: 190px;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 25% 25%,rgba(131,240,208,.2),transparent 36%),
+        radial-gradient(circle at 80% 75%,rgba(165,180,252,.22),transparent 38%),
+        linear-gradient(135deg,#172541,#101629);
+    }
+
+    .project-cover.pink {
+      background:
+        radial-gradient(circle at 70% 25%,rgba(255,191,166,.22),transparent 30%),
+        linear-gradient(135deg,#261b36,#111a2b);
+    }
+
+    .project-cover.gold {
+      background:
+        radial-gradient(circle at 30% 30%,rgba(255,208,128,.2),transparent 35%),
+        linear-gradient(135deg,#24314a,#121a2c);
+    }
+
+    .mock-window {
+      width: 74%;
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 12px;
+      background: rgba(8,13,27,.82);
+      box-shadow: 0 20px 45px rgba(0,0,0,.25);
+      transform: rotate(-3deg);
+      transition: transform .35s;
+    }
+
+    .project-card:hover .mock-window {
+      transform: rotate(0) translateY(-3px);
+    }
+
+    .mock-line {
+      height: 7px;
+      width: 78%;
+      margin: 10px 0;
+      border-radius: 9px;
+      background: rgba(255,255,255,.15);
+    }
+
+    .mock-line.highlight {
+      width: 55%;
+      height: 11px;
+      background: var(--mint);
+    }
+
+    .mock-blocks {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 7px;
+      margin-top: 14px;
+    }
+
+    .mock-blocks span {
+      height: 30px;
+      border: 1px solid rgba(165,180,252,.3);
+      border-radius: 6px;
+      background: rgba(165,180,252,.12);
+    }
+
+    .cover-icon {
+      position: absolute;
+      right: 11%;
+      bottom: 12%;
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(131,240,208,.3);
+      border-radius: 15px;
+      color: var(--mint);
+      background: rgba(8,13,27,.85);
+    }
+
+    /* REVEAL ANIMATION */
+
+    .hero-enter {
+      animation: enter .8s both;
+    }
+
+    .hero-enter.delay {
+      animation-delay: .15s;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-top {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: .25s ease;
+    }
+
+    .back-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    @keyframes enter {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bob {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    @keyframes orbit {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    @keyframes pulse {
+      0%,100% {
+        transform: scale(1);
+        opacity: .7;
+      }
+      50% {
+        transform: scale(1.8);
+        opacity: 0;
+      }
+    }
+
+    @keyframes menuEnter {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .section-pad {
+        padding: 68px 0;
+      }
+
+      .portrait-shell {
+        width: 230px;
+      }
+
+      .portrait-orbit {
+        width: 285px;
+        max-width: 115vw;
+      }
+
+      .float-badge.one {
+        right: -5%;
+        top: 17%;
+      }
+
+      .float-badge.two {
+        left: -5%;
+        bottom: 12%;
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .portrait-shell {
+        width: 205px;
+      }
+
+      .float-badge {
+        gap: 7px;
+        padding: 9px 10px;
+      }
+
+      .float-badge.one {
+        right: -2%;
+      }
+
+      .float-badge.two {
+        left: -2%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased">
+
+  <!-- UPDATED NAVBAR -->
+  <header id="navbar" class="glass-nav fixed inset-x-0 top-0 z-50">
+    <nav class="mx-auto flex min-h-[76px] max-w-7xl items-center justify-between gap-5 px-5 lg:px-8" aria-label="Main navigation">
+
+      <!-- Logo / Brand -->
+      <a href="#home" class="brand-link group flex shrink-0 items-center gap-3" aria-label="Darshana Meena home">
+        <span class="brand-mark">DM</span>
+        <span class="flex flex-col">
+          <span class="font-display text-lg font-extrabold leading-tight tracking-tight text-white sm:text-xl">
+            darshana<span class="text-mint transition group-hover:text-lilac">.</span>
+          </span>
+          <span class="mt-1 text-[9px] font-semibold uppercase tracking-[.19em] text-slate-400 sm:text-[10px]">
+            Design · Develop
+          </span>
+        </span>
+      </a>
+
+      <!-- Desktop navigation -->
+      <div class="hidden items-center gap-6 xl:gap-7 lg:flex">
+        <a class="nav-link text-sm font-medium" href="#home">Home</a>
+        <a class="nav-link text-sm font-medium" href="#about">About</a>
+        <a class="nav-link text-sm font-medium" href="#skills">Skills</a>
+        <a class="nav-link text-sm font-medium" href="#experience">Experience</a>
+        <a class="nav-link text-sm font-medium" href="#projects">Projects</a>
+        <a class="nav-link text-sm font-medium" href="#education">Education</a>
+
+        <a class="nav-contact inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold" href="#contact">
+          Let's talk <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button id="menuToggle" class="menu-toggle grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-white/[.04] text-lg text-white lg:hidden" type="button" aria-label="Open navigation menu" aria-controls="mobileMenu" aria-expanded="false">
+        <i id="menuIcon" class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+
+    <!-- Mobile navigation -->
+    <div id="mobileMenu" class="mobile-menu absolute inset-x-0 top-full flex-col gap-1 border-b border-white/10 px-5 pb-5 pt-3 shadow-2xl lg:hidden">
+      <a class="rounded-xl px-4 py-3 text-sm text-slate-300" href="#home">Home</a>
+      <a class="rounded-xl px-4 py-3 text-sm text-slate-300" href="#about">About</a>
+      <a class="rounded-xl px-4 py-3 text-sm text-slate-300" href="#skills">Skills</a>
+      <a class="rounded-xl px-4 py-3 text-sm text-slate-300" href="#experience">Experience</a>
+      <a class="rounded-xl px-4 py-3 text-sm text-slate-300" href="#projects">Projects</a>
+      <a class="rounded-xl px-4 py-3 text-sm text-slate-300" href="#education">Education</a>
+      <a class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl border border-mint/30 bg-mint/10 px-4 py-3 text-sm font-bold text-mint" href="#contact">
+        Let's talk <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="home" class="relative flex min-h-screen items-center overflow-hidden pb-16 pt-28 sm:pt-32">
+      <div class="pointer-events-none absolute left-1/2 top-1/3 -z-10 h-80 w-80 -translate-x-1/2 rounded-full bg-indigo-500/10 blur-[100px]"></div>
+
+      <div class="mx-auto grid w-full max-w-7xl items-center gap-14 px-5 lg:grid-cols-[1.15fr_.85fr] lg:gap-16 lg:px-8">
+
+        <!-- Introduction -->
+        <div class="hero-enter order-2 text-center lg:order-1 lg:text-left">
+
+          <div class="mb-7 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[.035] px-4 py-2 text-xs font-medium text-slate-300 sm:text-sm">
+            <span class="status-dot"></span>
+            Aspiring UI/UX Designer & Frontend Developer
+          </div>
+
+          <h1 class="mb-6 font-display text-5xl font-extrabold leading-[1.04] tracking-[-.065em] sm:text-6xl xl:text-7xl">
+            Hi, I'm<br>
+            <span class="gradient-text">Darshana Meena.</span>
+          </h1>
+
+          <p class="mb-5 font-display text-xl font-semibold tracking-tight text-slate-200 sm:text-2xl">
+            I design. I build. <span class="text-slate-400">I learn.</span>
+          </p>
+
+          <p class="mx-auto mb-8 max-w-xl text-base leading-8 text-slate-400 lg:mx-0">
+            I'm a creative learner from Indore, India, interested in building clean, responsive and user-friendly digital experiences. I enjoy exploring website layouts, improving visual details and turning ideas into websites.
+          </p>
+
+          <div class="mb-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+            <a href="#projects" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-mint px-5 py-3 text-sm font-bold text-[#071a19] shadow-glow transition hover:-translate-y-1 hover:shadow-lg">
+              Explore my work <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="_Darshana_Meena.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[.035] px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:border-mint/40">
+              <i class="fa-regular fa-file-pdf text-mint"></i> View resume
+            </a>
+          </div>
+
+          <div class="flex justify-center gap-3 lg:justify-start" aria-label="Social links">
+            <a class="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-white/[.035] text-slate-400 transition hover:-translate-y-1 hover:border-mint/40 hover:text-mint" href="https://www.linkedin.com/in/darshana-meena-b75785320" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+            <a class="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-white/[.035] text-slate-400 transition hover:-translate-y-1 hover:border-mint/40 hover:text-mint" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a class="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-white/[.035] text-slate-400 transition hover:-translate-y-1 hover:border-mint/40 hover:text-mint" href="mailto:darshnameena0@gmail.com" aria-label="Email">
+              <i class="fa-regular fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- UPDATED PROFILE PHOTO -->
+        <div class="hero-enter delay order-1 flex min-h-[370px] items-center justify-center lg:order-2 lg:min-h-[530px]" aria-label="Profile photo of Darshana Meena">
+
+          <div class="portrait-wrap">
+
+            <div class="portrait-orbit"></div>
+
+            <div class="portrait-shell">
+              <div class="portrait-inner">
+                <img id="profilePhoto" src="./pro_me_UP.png" alt="Portrait of Darshana Meena">
+
+                <div id="portraitFallback" class="absolute inset-0 hidden items-center justify-center font-display text-7xl font-extrabold text-mint">
+                  DM
+                </div>
+              </div>
+            </div>
+
+            <div class="float-badge one text-xs font-semibold sm:text-sm">
+              <span class="grid h-9 w-9 place-items-center rounded-xl border border-mint/15 bg-mint/10">
+                <i class="fa-solid fa-pen-ruler"></i>
+              </span>
+              <span>
+                UI Design<br>
+                <small class="font-normal text-slate-400">Thoughtful interfaces</small>
+              </span>
+            </div>
+
+            <div class="float-badge two text-xs font-semibold sm:text-sm">
+              <span class="grid h-9 w-9 place-items-center rounded-xl border border-indigo-300/15 bg-indigo-300/10">
+                <i class="fa-solid fa-code"></i>
+              </span>
+              <span>
+                Frontend<br>
+                <small class="font-normal text-slate-400">Built with care</small>
+              </span>
+            </div>
+
+            <div class="absolute bottom-0 right-0 z-20 hidden items-center gap-2 rounded-full border border-white/10 bg-[#10192b]/90 px-3 py-2 text-xs text-slate-300 shadow-card sm:flex">
+              <span class="h-2 w-2 rounded-full bg-mint"></span>
+              Always learning
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section-pad">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+
+        <div class="reveal mb-10 max-w-2xl">
+          <span class="eyebrow">A little about me</span>
+          <h2 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl">
+            Designing with <span class="gradient-text">curiosity.</span>
+          </h2>
+          <p class="mt-4 leading-7 text-slate-400">
+            I'm building my skills through hands-on practice, live work and collaborative projects.
+          </p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2">
+
+          <article class="glass-card reveal rounded-3xl p-7 sm:p-8">
+            <h3 class="mb-4 text-xl font-bold">Who I am</h3>
+            <p class="leading-8 text-slate-400">
+              I'm an MCA student with an interest in UI/UX design and frontend development. I enjoy experimenting with layouts, typography, colours and responsive website designs. I'm continuing to improve my design process and coding fundamentals through practical work.
+            </p>
+          </article>
+
+          <article class="glass-card reveal rounded-3xl p-7 sm:p-8">
+            <h3 class="mb-4 text-xl font-bold">What I'm focusing on</h3>
+
+            <ul class="space-y-4 text-slate-300">
+              <li class="flex gap-3">
+                <i class="fa-solid fa-check mt-1 text-mint"></i>
+                <span>Creating clear, visually consistent website layouts.</span>
+              </li>
+              <li class="flex gap-3">
+                <i class="fa-solid fa-check mt-1 text-mint"></i>
+                <span>Practising HTML, CSS and basic JavaScript.</span>
+              </li>
+              <li class="flex gap-3">
+                <i class="fa-solid fa-check mt-1 text-mint"></i>
+                <span>Learning UI design and prototyping with Figma.</span>
+              </li>
+              <li class="flex gap-3">
+                <i class="fa-solid fa-check mt-1 text-mint"></i>
+                <span>Learning from real-world and team-based projects.</span>
+              </li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section-pad border-y border-white/[.035] bg-white/[.012]">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+
+        <div class="reveal mb-10 max-w-2xl">
+          <span class="eyebrow">My current skills</span>
+          <h2 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl">
+            What I'm <span class="gradient-text">learning and using.</span>
+          </h2>
+          <p class="mt-4 leading-7 text-slate-400">
+            My current focus is on web fundamentals, visual design and building better website experiences.
+          </p>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+          <article class="glass-card reveal rounded-3xl p-6">
+            <div class="skill-icon mb-5"><i class="fa-solid fa-code"></i></div>
+            <h3 class="mb-4 text-lg font-bold">Frontend Development</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">Tailwind CSS</span>
+              <span class="skill-tag">Bootstrap</span>
+            </div>
+          </article>
+
+          <article class="glass-card reveal rounded-3xl p-6">
+            <div class="skill-icon mb-5"><i class="fa-brands fa-js"></i></div>
+            <h3 class="mb-4 text-lg font-bold">JavaScript & React</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">JavaScript Basics</span>
+              <span class="skill-tag">React Basics</span>
+              <span class="skill-tag">Basic Interactions</span>
+            </div>
+          </article>
+
+          <article class="glass-card reveal rounded-3xl p-6">
+            <div class="skill-icon mb-5"><i class="fa-brands fa-figma"></i></div>
+            <h3 class="mb-4 text-lg font-bold">UI/UX Design</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Figma Basics</span>
+              <span class="skill-tag">UI Design</span>
+              <span class="skill-tag">Website Design</span>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="reveal mt-6 text-sm text-slate-500">
+          I'm continuously learning and improving these skills through practice projects and ongoing work.
+        </p>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section-pad">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+
+        <div class="reveal mb-10 max-w-2xl">
+          <span class="eyebrow">Current experience</span>
+          <h2 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl">
+            Learning through <span class="gradient-text">real work.</span>
+          </h2>
+          <p class="mt-4 leading-7 text-slate-400">
+            A look at the website design work I'm currently involved in.
+          </p>
+        </div>
+
+        <article class="glass-card reveal grid gap-6 rounded-3xl p-6 sm:p-8 md:grid-cols-[72px_1fr]">
+
+          <div class="skill-icon h-16 w-16 text-2xl">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+
+          <div>
+            <div class="mb-3 flex flex-wrap items-center gap-3">
+              <h3 class="text-xl font-bold">Website Design Work — AIMA</h3>
+              <span class="rounded-full border border-mint/25 px-3 py-1 text-xs font-semibold text-mint">Part-time</span>
+            </div>
+
+            <div class="mb-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-400">
+              <span><i class="fa-regular fa-clock mr-2 text-mint"></i>Ongoing</span>
+              <span><i class="fa-solid fa-location-dot mr-2 text-mint"></i>Web-based work</span>
+            </div>
+
+            <p class="mb-5 leading-8 text-slate-400">
+              I'm currently working part-time on the design of the AIMA website. This experience helps me practise website layouts, visual consistency and working on a live web project. The description reflects my involvement in the design work, rather than claiming ownership of the entire website.
+            </p>
+
+            <a class="inline-flex items-center gap-2 rounded-xl border border-white/10 px-4 py-3 text-sm font-bold transition hover:border-mint/40 hover:text-mint" href="http://aima.sanntra.com:3000/aimaweb/home" target="_blank" rel="noopener noreferrer">
+              View work website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section-pad border-y border-white/[.035] bg-white/[.012]">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+
+        <div class="reveal mb-8 max-w-2xl">
+          <span class="eyebrow">Selected work</span>
+          <h2 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl">
+            Projects & <span class="gradient-text">practice.</span>
+          </h2>
+          <p class="mt-4 leading-7 text-slate-400">
+            A mix of a live project, collaborative work and website design practice. Each project represents a different part of my learning.
+          </p>
+        </div>
+
+        <h3 class="reveal mb-5 mt-10 flex items-center gap-3 text-xl font-bold">
+          <i class="fa-solid fa-rocket text-mint"></i> Live project
+        </h3>
+
+        <div class="grid gap-6 md:grid-cols-2">
+
+          <!-- Kisan Connect -->
+          <article class="project-card glass-card reveal overflow-hidden rounded-3xl">
+            <div class="project-cover">
+              <div class="mock-window">
+                <div class="flex gap-1.5">
+                  <span class="h-2 w-2 rounded-full bg-slate-500"></span>
+                  <span class="h-2 w-2 rounded-full bg-slate-500"></span>
+                  <span class="h-2 w-2 rounded-full bg-slate-500"></span>
+                </div>
+                <div class="mock-line highlight"></div>
+                <div class="mock-line"></div>
+                <div class="mock-blocks"><span></span><span></span><span></span></div>
+              </div>
+              <div class="cover-icon"><i class="fa-solid fa-seedling"></i></div>
+            </div>
+
+            <div class="p-6">
+              <p class="mb-2 text-xs font-bold uppercase tracking-[.15em] text-mint">Live project</p>
+              <h3 class="mb-3 text-xl font-bold">Kisan Connect</h3>
+              <p class="mb-5 text-sm leading-7 text-slate-400">
+                A live website project that I've worked on. This project is part of my practical experience in creating and improving website interfaces.
+              </p>
+              <div class="mb-5 flex flex-wrap gap-2">
+                <span class="project-tag">Website design</span>
+                <span class="project-tag">Frontend practice</span>
+              </div>
+              <a class="inline-flex items-center gap-2 text-sm font-bold text-mint hover:gap-3" href="https://kissan-sepia.vercel.app/" target="_blank" rel="noopener noreferrer">
+                View live website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Student Management -->
+          <article class="project-card glass-card reveal overflow-hidden rounded-3xl">
+            <div class="project-cover gold">
+              <div class="mock-window">
+                <div class="flex gap-1.5">
+                  <span class="h-2 w-2 rounded-full bg-slate-500"></span>
+                  <span class="h-2 w-2 rounded-full bg-slate-500"></span>
+                  <span class="h-2 w-2 rounded-full bg-slate-500"></span>
+                </div>
+                <div class="mock-line highlight" style="width:66%"></div>
+                <div class="mock-blocks"><span></span><span></span><span></span></div>
+                <div class="mock-line"></div>
+              </div>
+              <div class="cover-icon"><i class="fa-solid fa-users"></i></div>
+            </div>
+
+            <div class="p-6">
+              <p class="mb-2 text-xs font-bold uppercase tracking-[.15em] text-mint">Collaborative project</p>
+              <h3 class="mb-3 text-xl font-bold">Student Management System</h3>
+              <p class="mb-5 text-sm leading-7 text-slate-400">
+                A team project developed with friends. My contribution was focused on the design and interface work as part of the collaborative effort.
+              </p>
+              <div class="mb-5 flex flex-wrap gap-2">
+                <span class="project-tag">UI design</span>
+                <span class="project-tag">Team collaboration</span>
+              </div>
+              <span class="text-sm text-slate-500">
+                <i class="fa-solid fa-people-group mr-2"></i>Built collaboratively
+              </span>
+            </div>
+          </article>
+
+        </div>
+
+        <h3 class="reveal mb-5 mt-12 flex items-center gap-3 text-xl font-bold">
+          <i class="fa-solid fa-palette text-mint"></i> Website design practice
+        </h3>
+
+        <div class="grid gap-6 md:grid-cols-2">
+
+          <!-- Floral Bliss -->
+          <article class="project-card glass-card reveal overflow-hidden rounded-3xl">
+            <div class="project-cover pink">
+              <div class="mock-window">
+                <div class="flex gap-1.5">
+                  <span class="h-2 w-2 rounded-full bg-slate-500"></span>
+                  <span class="h-2 w-2 rounded-full bg-slate-500"></span>
+                  <span class="h-2 w-2 rounded-full bg-slate-500"></span>
+                </div>
+                <div class="mock-line highlight" style="background:#e9a9b6"></div>
+                <div class="mock-line"></div>
+                <div class="mock-blocks">
+                  <span style="background:rgba(233,169,182,.18)"></span>
+                  <span style="background:rgba(233,169,182,.18)"></span>
+                  <span style="background:rgba(233,169,182,.18)"></span>
+                </div>
+              </div>
+              <div class="cover-icon"><i class="fa-solid fa-spa"></i></div>
+            </div>
+
+            <div class="p-6">
+              <p class="mb-2 text-xs font-bold uppercase tracking-[.15em] text-mint">Practice website</p>
+              <h3 class="mb-3 text-xl font-bold">Floral Bliss</h3>
+              <p class="mb-5 text-sm leading-7 text-slate-400">
+                A floral-themed website design exercise focused on presenting content with an appealing layout and a consistent visual style.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">Bootstrap</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Image Gallery -->
+          <article class="project-card glass-card reveal overflow-hidden rounded-3xl">
+            <div class="project-cover">
+              <div class="mock-window">
+                <div class="flex gap-1.5">
+                  <span class="h-2 w-2 rounded-full bg-slate-500"></span>
+                  <span class="h-2 w-2 rounded-full bg-slate-500"></span>
+                  <span class="h-2 w-2 rounded-full bg-slate-500"></span>
+                </div>
+                <div class="mock-line highlight" style="background:#a5b4fc"></div>
+                <div class="mock-blocks">
+                  <span></span>
+                  <span style="background:rgba(131,240,208,.15)"></span>
+                  <span></span>
+                </div>
+                <div class="mock-blocks">
+                  <span style="height:22px"></span>
+                  <span style="height:22px"></span>
+                  <span style="height:22px"></span>
+                </div>
+              </div>
+              <div class="cover-icon"><i class="fa-regular fa-images"></i></div>
+            </div>
+
+            <div class="p-6">
+              <p class="mb-2 text-xs font-bold uppercase tracking-[.15em] text-mint">Practice project</p>
+              <h3 class="mb-3 text-xl font-bold">Responsive Image Gallery</h3>
+              <p class="mb-5 text-sm leading-7 text-slate-400">
+                A responsive image gallery created to practise arranging visual content and building a layout that adapts to different screen sizes.
+              </p>
+              <div class="mb-5 flex flex-wrap gap-2">
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">JavaScript</span>
+              </div>
+              <a class="inline-flex items-center gap-2 text-sm font-bold text-mint hover:gap-3" href="https://darshanameena.github.io/CodeAlpha_Image_gallery/" target="_blank" rel="noopener noreferrer">
+                View live website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="reveal mt-7 rounded-2xl border-l-2 border-mint bg-mint/[.045] p-5 text-sm leading-7 text-slate-400">
+          <i class="fa-solid fa-lightbulb mr-2 text-mint"></i>
+          <strong class="text-slate-200">About my practice work:</strong>
+          Some website designs are practice exercises based on existing references. They are included to show my learning and design practice, not to claim that the original concepts belong to me.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section-pad">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+
+        <div class="reveal mb-10 max-w-2xl">
+          <span class="eyebrow">Education</span>
+          <h2 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl">
+            My learning <span class="gradient-text">journey.</span>
+          </h2>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2">
+
+          <article class="glass-card reveal rounded-3xl p-7">
+            <i class="fa-solid fa-graduation-cap mb-5 text-2xl text-mint"></i>
+            <h3 class="mb-3 text-lg font-bold">Master of Computer Applications (MCA)</h3>
+            <p class="text-sm leading-7 text-slate-400">
+              Shri Vaishnav Vidyapeeth Vishwavidyalaya (SVVV), Indore
+            </p>
+            <span class="mt-4 inline-block text-sm font-semibold text-mint">
+              Currently Pursuing · 3rd Semester · 2nd Sem SGPA: 8.19
+            </span>
+          </article>
+
+          <article class="glass-card reveal rounded-3xl p-7">
+            <i class="fa-solid fa-book-open mb-5 text-2xl text-mint"></i>
+            <h3 class="mb-3 text-lg font-bold">Bachelor of Computer Science</h3>
+            <p class="text-sm leading-7 text-slate-400">
+              Devi Ahilya Vishwavidyalaya (DAVV), Indore
+            </p>
+            <span class="mt-4 inline-block text-sm font-semibold text-mint">
+              2022 – 2025 · CGPA: 7.05
+            </span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section-pad pt-8">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+
+        <div class="reveal relative overflow-hidden rounded-[2rem] border border-mint/20 bg-gradient-to-br from-[#141d31] to-[#0e1728] p-7 shadow-card sm:p-12">
+
+          <div class="pointer-events-none absolute -right-16 -top-20 h-72 w-72 rounded-full bg-indigo-400/10 blur-3xl"></div>
+
+          <div class="relative">
+            <span class="eyebrow">Let's connect</span>
+
+            <h2 class="mt-4 max-w-3xl text-3xl font-extrabold tracking-tight sm:text-5xl">
+              Have an opportunity or project in <span class="gradient-text">mind?</span>
+            </h2>
+
+            <p class="mb-7 mt-5 max-w-2xl leading-8 text-slate-400">
+              I'm interested in opportunities where I can learn, contribute to design work and continue growing as a UI/UX Designer and Frontend Developer. I'd be happy to connect.
+            </p>
+
+            <a class="inline-flex items-center gap-2 rounded-xl bg-mint px-5 py-3 font-bold text-[#071a19] transition hover:-translate-y-1" href="mailto:darshnameena0@gmail.com">
+              Get in touch <i class="fa-solid fa-paper-plane"></i>
+            </a>
+
+            <div class="mt-9 grid gap-3 md:grid-cols-3">
+
+              <a class="flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/[.025] p-4 transition hover:border-mint/30" href="mailto:darshnameena0@gmail.com">
+                <i class="fa-regular fa-envelope text-lg text-mint"></i>
+                <span class="break-all text-sm text-slate-300">darshnameena0@gmail.com</span>
+              </a>
+
+              <a class="flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/[.025] p-4 transition hover:border-mint/30" href="tel:+918253052626">
+                <i class="fa-solid fa-phone text-lg text-mint"></i>
+                <span class="text-sm text-slate-300">+91 82530 52626</span>
+              </a>
+
+              <div class="flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/[.025] p-4">
+                <i class="fa-solid fa-location-dot text-lg text-mint"></i>
+                <span class="text-sm text-slate-300">Indore, Madhya Pradesh, India</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/[.07] py-7">
+    <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-5 text-sm text-slate-500 sm:flex-row sm:items-center lg:px-8">
+
+      <a href="#home" class="font-display text-lg font-extrabold tracking-tight text-white">
+        darshana<span class="text-mint">.</span>
+      </a>
+
+      <p>Designed with care by Darshana Meena · <span id="year"></span></p>
+
+      <a href="#home" class="text-mint transition hover:text-white">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button id="backToTop" class="back-top fixed bottom-5 right-5 z-40 grid h-12 w-12 place-items-center rounded-2xl border border-mint/30 bg-[#111a2d] text-mint shadow-card hover:bg-mint hover:text-[#071a19]" type="button" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const menuIcon = document.getElementById("menuIcon");
+
+    function closeMenu() {
+      mobileMenu.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+      menuIcon.className = "fa-solid fa-bars";
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+
+      menuIcon.className = isOpen
+        ? "fa-solid fa-xmark"
+        : "fa-solid fa-bars";
+    });
+
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 1024) closeMenu();
+    });
+
+    // Navbar scroll effect and back-to-top
+    const navbar = document.getElementById("navbar");
+    const backToTop = document.getElementById("backToTop");
+
+    function handleScroll() {
+      navbar.classList.toggle("scrolled", window.scrollY > 16);
+      backToTop.classList.toggle("visible", window.scrollY > 450);
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Scroll reveal animations
+    const revealElements = document.querySelectorAll(".reveal");
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if ("IntersectionObserver" in window && !reduceMotion) {
+      const observer = new IntersectionObserver(
+        (entries, currentObserver) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              currentObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: "0px 0px -25px 0px"
+        }
+      );
+
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element => {
+        element.classList.add("visible");
+      });
+    }
+
+    // Profile image fallback
+    const profilePhoto = document.getElementById("profilePhoto");
+    const portraitFallback = document.getElementById("portraitFallback");
+
+    function showPortraitFallback() {
+      profilePhoto.classList.add("hidden");
+      portraitFallback.classList.remove("hidden");
+      portraitFallback.classList.add("flex");
+    }
+
+    profilePhoto.addEventListener("error", showPortraitFallback);
+
+    // Handle cached image errors
+    if (profilePhoto.complete && profilePhoto.naturalWidth === 0) {
+      showPortraitFallback();
+    }
+
+    // Active navbar link based on current section
+    const sections = document.querySelectorAll(
+      "main section[id]"
+    );
+    const desktopNavLinks = document.querySelectorAll(
+      "nav .nav-link"
+    );
+    const mobileNavLinks = mobileMenu.querySelectorAll(
+      'a[href^="#"]'
+    );
+
+    function setActiveNav(sectionId) {
+      desktopNavLinks.forEach(link => {
+        const isActive = link.getAttribute("href") === "#" + sectionId;
+        link.classList.toggle("active", isActive);
+
+        if (isActive) {
+          link.setAttribute("aria-current", "location");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+
+      mobileNavLinks.forEach(link => {
+        const isActive = link.getAttribute("href") === "#" + sectionId;
+        link.classList.toggle("active", isActive);
+      });
+    }
+
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver(
+        entries => {
+          const visibleSections = entries
+            .filter(entry => entry.isIntersecting)
+            .sort(
+              (a, b) =>
+                b.intersectionRatio - a.intersectionRatio
+            );
+
+          if (visibleSections.length) {
+            setActiveNav(visibleSections[0].target.id);
+          }
+        },
+        {
+          rootMargin: "-25% 0px -55% 0px",
+          threshold: [0, 0.1, 0.25, 0.5]
+        }
+      );
+
+      sections.forEach(section => sectionObserver.observe(section));
+    }
+
+    // Dynamic footer year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
